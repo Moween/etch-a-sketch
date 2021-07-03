@@ -1,21 +1,22 @@
 const container = document.querySelector('.container');
 const clearBtn = document.querySelector('.clear-btn');
+const bgToggler = document.querySelector('.bg-toggler');
 
 class Square {
   constructor() {
     this.divElem = document.createElement('div');
     this.divElem.className = 'square';
     this.divElem.onmouseover = this.handleColorEffect;
-    this.handleColorEffect = this.handleColorEffect.bind(this);
   }
 
-  handleColorEffect(e) {
+  handleColorEffect = (e) => {
     e.preventDefault();
     const { target: square } = e;
     const green = Math.floor(Math.random() * (256 - 0));
     const red = Math.floor(Math.random() * (256 - 0));
     const blue = Math.floor(Math.random() * (256 - 0));
-    square.style.backgroundColor = `rgb(${green}, ${red}, ${blue})`;
+    square.style.border = '1px solid black';
+    square.style.background = `rgb(${green}, ${red}, ${blue})`;
   }
 }
 
@@ -32,5 +33,15 @@ const handleClearSketch = (e) => {
   renderSquare();
 };
 
+const handleBackgroundColor = (e) => {
+  e.preventDefault();
+  container.innerHTML = '';
+  renderSquare();
+  const { body } = document;
+  body.style.background = body.style.background === 'white'
+    ? 'linear-gradient(darkblue, pink)' : 'white';
+};
+
 renderSquare();
 clearBtn.addEventListener('click', handleClearSketch);
+bgToggler.addEventListener('click', handleBackgroundColor);
