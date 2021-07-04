@@ -5,6 +5,11 @@
 
 body {
   height: 100vh;
+  background: linear-gradient(darkblue, pink);
+}
+
+header {
+  position: relative;
 }
 
 .heading {
@@ -14,13 +19,33 @@ body {
   width: 100%;
 }
 
+.bg-toggler {
+  background-image: url('images/icon-sun.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  height: 30px;
+  left: 80%;
+  margin: 5px 0;
+  outline: none;
+  width: 40px;
+}
+
+.bg-toggler-darkmode {
+  background-image: url('images/icon-moon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   height: 70vh;
   margin: 0 auto 10px;
   overflow-y: hidden;
-  width: 80%;
+  width: 70%;
 }
 
 .square {
@@ -29,20 +54,27 @@ body {
   margin: 0;
   padding: 0;
   width: 5%;
+  height: 5px;
   height: 10%;
 }
 
+.btns-container {
+  text-align: center;
+}
+
 .clear-btn {
+  border: 1px solid darkblue;
+  border-radius: 5%;
+  background: linear-gradient(blue, darkblue);
+  color: white;
   cursor: pointer;
-  display: block;
-  margin: 10px auto;
+  margin: 10px 30px;
   outline: none;
   padding: 10px;
-  width: 70px;
 }
 
 footer {
-  /* margin-top: 30px; */
+  margin-top: 30px;
 }
 
 .copyright-text {
